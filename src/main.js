@@ -1,6 +1,19 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from './router'
-import store from './store'
+import router from "./router";
+import store from "./store";
+import VueTablerIcons from "vue-tabler-icons";
+import VueI18n from "./languages";
 
-createApp(App).use(store).use(router).mount('#app')
+
+import "./sass/main.scss"
+
+
+
+
+const app = createApp(App);
+app.use(router).use(store).use(VueTablerIcons).use(VueI18n);
+
+
+app.mount("#app");
+

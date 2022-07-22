@@ -1,0 +1,11 @@
+.round-image{
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba($color-black, .2);
+  transition: all .1s;
+
+  &:hover{
+    transform: scale(1.1);
+  }
+}

@@ -1,0 +1,11 @@
+.search-box{
+  position: relative;
+
+  &__icon{
+    position: absolute;
+    top: 50%;
+    right: .6rem;
+    stroke: $color-text-light;
+    transform: translateY(-50%);
+  }
+}

@@ -1,0 +1,107 @@
+.nav {
+  padding: 1.2rem;
+  border-bottom: 1px solid #dee2e6;
+
+  @include themify(){
+    background-color: themed("background-color");
+    color: themed("base-text-color");
+  }
+
+
+
+  @include flex-space-between;
+
+  &__left {
+    @include flex-align-center;
+    gap: 1.2rem;
+
+    svg{
+      margin: 0 .6rem;
+    }
+  }
+
+  [class$="-box"]{
+    @include flex-align-center;
+  }
+
+  &__language-box{
+    gap: 1.2rem;
+    margin-right: 1.2rem;
+  }
+
+  &__notification-box{
+    position: relative;
+  }
+
+  &__color-tip{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: .1rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+
+    &::before{
+      content: "";
+      top: -.4rem;
+      right: -.4rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      position: absolute;
+      border-radius: 50%;
+      cursor: pointer;
+      animation: pulse 1s linear infinite;
+    }
+    &--green::before{
+      background: rgb(34, 192, 67);
+      box-shadow: 0 0 0  rgba(34, 192, 60, 0.6);
+    }
+
+    &--red::before{
+      box-shadow: 0 0 0 rgb(238 ,51, 104);
+      background-color:rgba(238, 51, 94, 0.8) ;
+    }
+
+
+    &--green{
+      background: #22c03c;
+    }
+
+    &--red{
+      background: rgba(238, 51, 94, 0.8);
+      top: -.1rem;
+      right: -.2rem;
+    }
+  }
+
+  &__icon-settings{
+    animation: settings-rotate 2s infinite linear;
+  }
+
+
+  &__icon-box{
+    @include flex-align-center;
+    cursor: pointer;
+    gap: 2.4rem;
+
+
+    svg{
+      height: 2.4rem;
+      width: 2.4rem;
+      transition: all .05s;
+      &:hover{
+        transform: scale(1.1);
+      }
+    }
+
+  }
+  &__user-box{
+    gap: .8rem;
+
+    span{
+      text-transform: uppercase;
+      font-family: sans-serif;
+    }
+  }
+}

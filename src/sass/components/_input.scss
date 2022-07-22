@@ -1,0 +1,17 @@
+.input{
+  border: 1px solid $color-grey-tiny;
+  padding: 1rem 1.2rem;
+  border-radius: 1.2rem;
+  font-size: 1.6rem;
+  color: inherit;
+  outline: none;
+  width: 24rem;
+
+  &::-webkit-input-placeholder{
+    color: $color-text-tiny;
+  }
+
+  &:focus{
+    box-shadow: 0 .2rem .2rem rgba($color-black, .1);
+  }
+}

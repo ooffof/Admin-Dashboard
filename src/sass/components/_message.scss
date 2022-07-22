@@ -1,0 +1,32 @@
+.message{
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  padding: 1.2rem 2.4rem;
+  border-radius: 6px;
+  color: $color-white;
+  opacity: .85;
+
+  cursor: pointer;
+
+  transition: transform .5s;
+
+  &--leave{
+    transform: translate(-50%, -10rem);
+    //display: none;
+  }
+
+  &--error{
+    background-color: $color-red-primary;
+  }
+
+  &--success{
+    background-color: $color-green-primary;
+  }
+
+  &--warn{
+    background-color: $color-yellow-primary;
+  }
+}

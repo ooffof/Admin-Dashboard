@@ -1,14 +1,28 @@
-import { createStore } from 'vuex'
+import {createStore} from "vuex";
 
-export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
-})
+const store = createStore({
+	state: {
+		sideMenuToggled: true,
+		themeTopic: "light",
+		isFullScreen: false,
+	},
+	mutations: {
+		changeSideMenuState(state) {
+      state.sideMenuToggled = !state.sideMenuToggled;
+		},
+		changeThemeTopic(state, value){
+			console.log(value);
+			state.themeTopic = value
+		},
+		changeScreen(state){
+			state.isFullScreen = !state.isFullScreen;
+		}
+
+	},
+	actions: {
+
+	}
+
+});
+
+export default store;

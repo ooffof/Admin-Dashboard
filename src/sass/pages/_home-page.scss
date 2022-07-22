@@ -1,0 +1,13 @@
+.home-page {
+  @include flex-align-center;
+
+  &__main{
+    flex: 1;
+    align-self: flex-start;
+  }
+
+  &__content{
+    padding: 3rem;
+  }
+
+}

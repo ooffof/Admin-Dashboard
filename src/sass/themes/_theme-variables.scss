@@ -1,0 +1,22 @@
+$themes: (light: (
+        base-text-color: $color-text-level-5,
+        background-color: $color-light-background,
+        side-nav-background-color: $color-white,
+        side-nav-border-right: 1px solid $color-grey-tiny,
+        side-nav-border-bottom: 1px solid $color-grey-tiny,
+        side-nav-sub-category: $color-text-light,
+        side-nav-slide-menu-color: $color-text-light,
+        side-nav-label-new: $color-green-primary-light,
+        side-nav-label-hot: $color-red-primary-light,
+), dark:(
+        base-text-color: $color-text-level-c,
+        background-color: $color-dark-background,
+        side-nav-background-color: #2c302e,
+        side-nav-border-right: 1px solid #444,
+        side-nav-border-bottom: 1px solid #444,
+        side-nav-sub-category: #dee2e6,
+        side-nav-slide-menu-color: #ccc,
+        side-nav-label-new: $color-green-primary,
+        side-nav-label-hot: $color-red-primary,
+))
+
