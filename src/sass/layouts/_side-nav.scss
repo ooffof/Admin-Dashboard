@@ -4,6 +4,8 @@
   transition: all .3s;
   border-right: 1px solid $color-grey-tiny;
 
+  flex-shrink: 0;
+
 
 
   @include themify(){

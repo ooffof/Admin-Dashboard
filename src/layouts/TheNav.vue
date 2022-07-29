@@ -13,7 +13,7 @@
       <div ref="moon" class="moon-box">
         <moon-icon class="u-base-icon" @click="changeTheme('dark')"></moon-icon>
       </div>
-      <div ref="sun"  class="sun-box u-hidden">
+      <div ref="sun" class="sun-box u-hidden">
         <brightness-up-icon class="u-base-icon"
                             @click="changeTheme('light')"></brightness-up-icon>
       </div>
@@ -29,12 +29,12 @@
         <img src="https://picsum.photos/200/300" alt="user icon" class="round-image">
         <span>Admin</span>
       </div>
-      <settings-icon class="u-base-icon nav__icon-settings" @click="test"></settings-icon>
+      <settings-icon class="u-base-icon nav__icon-settings"></settings-icon>
     </div>
   </nav>
 </template>
 
-<script>
+<script setup>
 import SearchBox from "../components/SearchBox.vue";
 import BaseSelect from "@/components/base/BaseSelect";
 import {useStore} from "vuex";
@@ -43,77 +43,58 @@ import {useLoading, useMessage} from "@/hooks";
 import {useI18n} from "vue-i18n";
 
 
-export default {
-  name: "TheNav",
-  components: {
-    SearchBox, BaseSelect
-  },
-  setup() {
-    const store = useStore();
-    const {locale} = useI18n({useScope: 'global'});
+const store = useStore();
+const {locale} = useI18n({useScope: 'global'});
 
-    const moon = ref(null);
-    const sun = ref(null);
+const moon = ref(null);
+const sun = ref(null);
+
+const loading = useLoading();
+const message = useMessage();
 
 
-    async function changeTheme(topic) {
-      const loading = useLoading();
-      await loading.showAsyncLoadingWithArgs({
-        duration: 1000
-      });
-
-      const message = useMessage();
-
-      // if (topic === "light") {
-      //   moon.value.style.display = "inline-block";
-      //   sun.value.style.display = "none";
-      // } else {
-      sun.value.classList.toggle("u-hidden");
-      moon.value.classList.toggle("u-hidden");
-      // }
-      store.commit("changeThemeTopic", {
-        value: topic
-      });
-      message.showMessage("切换成功", "success");
-
-    }
-
-    function toggleSideBar() {
-      store.commit("changeSideMenuState");
-    }
-
-    function changeScreen() {
-      const app = document.getElementById("app");
-      if (store.state.isFullScreen) {
-        document.exitFullscreen();
-      } else {
-        app.requestFullscreen();
-      }
-
-      store.commit("changeScreen");
-    }
-
-    async function changeLanguage(value) {
-      const loading = useLoading();
-      await loading.showAsyncLoadingWithArgs({
-        duration: 1000
-      });
-
-      value = value === "English" ? "en" : value;
-      locale.value = value; // change!
-    }
+async function changeTheme(topic) {
+  await loading.showAsyncLoadingWithArgs({
+    duration: 1000
+  });
 
 
-    return {
-      toggleSideBar,
-      changeTheme,
-      changeLanguage,
-      moon,
-      sun,
-      changeScreen,
+  // if (topic === "light") {
+  //   moon.value.style.display = "inline-block";
+  //   sun.value.style.display = "none";
+  // } else {
+  sun.value.classList.toggle("u-hidden");
+  moon.value.classList.toggle("u-hidden");
+  // }
+  store.commit("changeThemeTopic", {
+    value: topic
+  });
+  message.showMessage("切换成功", "success");
 
-    };
+}
+
+function toggleSideBar() {
+  store.commit("changeSideMenuState");
+}
+
+function changeScreen() {
+  const app = document.getElementById("app");
+  if (store.state.isFullScreen) {
+    document.exitFullscreen();
+  } else {
+    app.requestFullscreen();
   }
-};
+
+  store.commit("changeScreen");
+}
+
+async function changeLanguage(value) {
+  await loading.showAsyncLoadingWithArgs({
+    duration: 1000
+  });
+
+  value = value === "English" ? "en" : value;
+  locale.value = value; // change!
+}
 </script>
 

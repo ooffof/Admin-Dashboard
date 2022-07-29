@@ -7,11 +7,6 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import BaseInput from "./base/BaseInput.vue";
-export default {
-  name: "SearchBox",
-  components: {BaseInput}
-
-};
 </script>

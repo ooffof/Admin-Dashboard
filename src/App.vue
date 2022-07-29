@@ -4,28 +4,21 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import {computed} from "vue";
 import {useStore} from "vuex";
 
-export default {
-  setup() {
-    const state = useStore().state;
-    const themeTopic = computed(() => {
-      const topic = state.themeTopic.value || state.themeTopic;
-      return `theme-${topic}`;
-    });
+const state = useStore().state;
+const themeTopic = computed(() => {
+  const topic = state.themeTopic.value || state.themeTopic;
+  return `theme-${topic}`;
+});
 
-    return {
-      themeTopic
-    };
-  }
-};
 </script>
 
 <style lang="scss">
-.root{
-  @include themify(){
+.root {
+  @include themify() {
     color: themed("base-text-color");
   }
 }

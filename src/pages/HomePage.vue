@@ -8,12 +8,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import SideNav from "@/layouts/SideNav";
 import TheNav from "@/layouts/TheNav";
-export default {
-  name: "HomePage",
-  components: {SideNav, TheNav}
-};
 </script>
 
