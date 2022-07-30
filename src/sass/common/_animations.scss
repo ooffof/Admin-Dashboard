@@ -15,30 +15,30 @@
 
 @keyframes ball1 {
   0% {
-    box-shadow: 5rem 0 0 #f8b334;
+    box-shadow: 3rem 0 0 #f8b334;
   }
   50% {
     box-shadow: 0 0 0 #f8b334;
     margin-bottom: 0;
-    transform: translate(2.5rem,2.5rem);
+    transform: translate(1.5rem,1.5rem);
   }
   100% {
-    box-shadow: 5rem 0 0 #f8b334;
-    margin-bottom: 2rem;
+    box-shadow: 3rem 0 0 #f8b334;
+    margin-bottom: 1rem;
   }
 }
 
 @keyframes ball2 {
   0% {
-    box-shadow: 5rem 0 0 #97bf0d;
+    box-shadow: 3rem 0 0 #97bf0d;
   }
   50% {
     box-shadow: 0 0 0 #97bf0d;
-    margin-top: -3rem;
-    transform: translate(2.5rem, 2.5rem);
+    margin-top: -2rem;
+    transform: translate(1.5rem, 1.5rem);
   }
   100% {
-    box-shadow: 50px 0 0 #97bf0d;
+    box-shadow: 3rem 0 0 #97bf0d;
     margin-top: 0;
   }
 }

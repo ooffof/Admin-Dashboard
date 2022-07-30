@@ -13,17 +13,35 @@
   </div>
 </template>
 
-<script setup >
-import {ref, defineProps, defineEmits} from "vue";
+<script setup lang="ts">
+import {ref} from "vue";
 
-const popup = ref(null);
-const props = defineProps(['placeholder', 'content']);
-const emits = defineEmits(['onSelected'])
+document.body.addEventListener("click", (e: Event) => {
+  const selects = document.querySelectorAll(".select");
 
-const placeholderText = ref(props.placeholder);
+  selects.forEach(value => {
+    const box = value.querySelector(".select__box")!;
+    const el = e.target as HTMLElement;
+    if(!box.contains(el)){
+      value.querySelector(".select__popup")!.classList.add("u-hidden");
+    }
+  })
 
-function hiddenPopup(e) {
-  const selectedValue = e.target.textContent;
+})
+
+const popup = ref();
+const props = defineProps<{
+  placeholder: string,
+  content: string[]
+}>();
+const emits = defineEmits<{
+  (eventName: "onSelected", value: string) : void
+}>()
+
+const placeholderText = ref(props.placeholder!);
+
+function hiddenPopup(e: Event) {
+  const selectedValue = (e.target as HTMLLIElement).textContent!;
   placeholderText.value = selectedValue;
   popup.value.classList.add("u-hidden");
   emits("onSelected", selectedValue);

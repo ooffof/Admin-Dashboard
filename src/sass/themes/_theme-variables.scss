@@ -8,6 +8,7 @@ $themes: (light: (
         side-nav-slide-menu-color: $color-text-light,
         side-nav-label-new: $color-green-primary-light,
         side-nav-label-hot: $color-red-primary-light,
+        nav-border-bottom: 1px solid $color-grey-tiny
 ), dark:(
         base-text-color: $color-text-level-c,
         background-color: $color-dark-background,
@@ -18,5 +19,6 @@ $themes: (light: (
         side-nav-slide-menu-color: #ccc,
         side-nav-label-new: $color-green-primary,
         side-nav-label-hot: $color-red-primary,
+        nav-border-bottom: 1px solid #444
 ))
 

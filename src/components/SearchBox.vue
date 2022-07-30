@@ -7,6 +7,6 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import BaseInput from "./base/BaseInput.vue";
 </script>

@@ -123,7 +123,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {useStore} from "vuex";
 import {watch, computed, ref} from "vue";
 import {useI18n} from "vue-i18n";
@@ -131,7 +131,7 @@ import {useI18n} from "vue-i18n";
 const {t} = useI18n();
 const state = useStore().state;
 const sideMenuToggled = computed(() => state.sideMenuToggled);
-const sideNav = ref({});
+const sideNav = ref();
 watch(sideMenuToggled, () => {
   sideNav.value.classList.toggle("side-nav__collapse");
   const slideMenuList = document.querySelectorAll(".side-nav__slide-menu");
@@ -140,9 +140,9 @@ watch(sideMenuToggled, () => {
   });
 });
 
-function toggleSlideMenu(e) {
-  const target = e.target;
-  const parent = target.closest("li");
+function toggleSlideMenu(e: Event) {
+  const target = e.target as HTMLElement;
+  const parent = target.closest("li")!;
   parent.classList.toggle("side-nav__slide-hidden");
   target.classList.toggle("arrow-right--rotate");
 }

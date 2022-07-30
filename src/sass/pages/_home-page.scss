@@ -8,6 +8,10 @@
 
   &__content{
     padding: 3rem;
+
+    @include themify(){
+      background-color: themed("background-color");
+    }
   }
 
 }

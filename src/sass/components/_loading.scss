@@ -24,33 +24,33 @@
 
   &__text{
     margin-top: 1.6rem;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: #00a096;
     animation: text-opacity 1s backwards infinite;
   }
 
   &__content{
     animation: rotate 1s infinite;
-    height: 8rem;
-    width: 8rem;
+    height: 5rem;
+    width: 5rem;
 
     &::before, &::after{
       border-radius: 50%;
       content: '';
       display: block;
-      height: 3rem;
-      width: 3rem;
+      height: 2rem;
+      width: 2rem;
     }
     &::before{
       animation: ball1 1s infinite;
       background-color: #cb2025;
-      box-shadow: 5rem 0 0 #f8b334;
-      margin-bottom: 2rem;
+      box-shadow: 3rem 0 0 #f8b334;
+      margin-bottom: 1rem;
     }
     &::after{
       animation: ball2 1s infinite;
       background-color: #00a096;
-      box-shadow: 5rem 0 0 #97bf0d;
+      box-shadow: 3rem 0 0 #97bf0d;
     }
   }
 }

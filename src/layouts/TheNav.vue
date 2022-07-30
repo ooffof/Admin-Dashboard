@@ -34,9 +34,9 @@
   </nav>
 </template>
 
-<script setup>
-import SearchBox from "../components/SearchBox.vue";
-import BaseSelect from "@/components/base/BaseSelect";
+<script setup lang="ts">
+import SearchBox from "@/components/SearchBox.vue";
+import BaseSelect from "@/components/base/BaseSelect.vue";
 import {useStore} from "vuex";
 import {ref} from "vue";
 import {useLoading, useMessage} from "@/hooks";
@@ -46,16 +46,17 @@ import {useI18n} from "vue-i18n";
 const store = useStore();
 const {locale} = useI18n({useScope: 'global'});
 
-const moon = ref(null);
-const sun = ref(null);
+const moon = ref();
+const sun = ref();
 
 const loading = useLoading();
 const message = useMessage();
 
 
-async function changeTheme(topic) {
+async function changeTheme(topic: string) {
   await loading.showAsyncLoadingWithArgs({
-    duration: 1000
+    duration: 1500,
+    content: "正在切换主题",
   });
 
 
@@ -78,7 +79,7 @@ function toggleSideBar() {
 }
 
 function changeScreen() {
-  const app = document.getElementById("app");
+  const app = document.getElementById("app")!;
   if (store.state.isFullScreen) {
     document.exitFullscreen();
   } else {
@@ -88,7 +89,7 @@ function changeScreen() {
   store.commit("changeScreen");
 }
 
-async function changeLanguage(value) {
+async function changeLanguage(value:string) {
   await loading.showAsyncLoadingWithArgs({
     duration: 1000
   });
