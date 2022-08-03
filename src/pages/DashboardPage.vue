@@ -1,56 +1,88 @@
 <template>
   <div class="dashboard">
-    <h3 class="dashboard__heading-primary">{{t("message.title")}}</h3>
-    <v-chart class="chart" :option="option"></v-chart>
+    <h3 class="dashboard__heading-primary">{{ t("message.title") }}</h3>
+    <div class="chart" ref="chart1"></div>
   </div>
 </template>
 
 <script setup lang="ts">
-import {use} from "echarts/core";
-import {CanvasRenderer} from "echarts/renderers"
-import {PieChart} from "echarts/charts";
-import VChart from 'vue-echarts';
-import {ref} from 'vue';
+import {onMounted, ref} from "vue";
 import {useI18n} from "vue-i18n";
+import * as echarts from "echarts";
+import {ECBasicOption} from "echarts/types/dist/shared";
 
 const {t} = useI18n();
 
-use([
-  CanvasRenderer,
-  PieChart
-])
 
-
-const option = ref({
+const chart1 = ref();
+const options1 = {
   series: [
     {
-      name: 'Traffic Sources',
-      type: 'pie',
-      radius: '55%',
-      center: ['50%', '60%'],
-      data: [
-        {value: 335, name: 'Direct'},
-        {value: 310, name: 'Email'},
-        {value: 234, name: 'Ad Networks'},
-        {value: 135, name: 'Video Ads'},
-        {value: 1548, name: 'Search Engines'},
-      ],
-      emphasis: {
-        itemStyle: {
-          shadowBlur: 10,
-          shadowOffsetX: 0,
-          shadowColor: 'rgba(0, 0, 0, 0.5)',
-        },
+      type: 'gauge',
+      progress: {
+        show: true,
+        width: 18
       },
-    },
-  ],
-});
+      axisLine: {
+        lineStyle: {
+          width: 18
+        }
+      },
+      axisTick: {
+        show: false
+      },
+      splitLine: {
+        length: 15,
+        lineStyle: {
+          width: 2,
+          color: '#999'
+        }
+      },
+      axisLabel: {
+        distance: 25,
+        color: '#999',
+        fontSize: 20
+      },
+      anchor: {
+        show: true,
+        showAbove: true,
+        size: 25,
+        itemStyle: {
+          borderWidth: 10
+        }
+      },
+      title: {
+        show: false
+      },
+      detail: {
+        valueAnimation: true,
+        fontSize: 80,
+        offsetCenter: [0, '70%']
+      },
+      data: [
+        {
+          value: 70
+        }
+      ]
+    }
+  ]
+}
+
+
+onMounted(() => {
+  init(chart1.value, options1);
+})
+
+function init(el:HTMLElement, options: ECBasicOption){
+  const v = echarts.init(el, "dark")
+  v.setOption(options);
+}
 
 
 </script>
 
 <style scoped>
 .chart {
-  height: 20rem;
+  height: 40rem;
 }
 </style>

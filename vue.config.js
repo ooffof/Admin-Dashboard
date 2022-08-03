@@ -1,12 +1,10 @@
 const {defineConfig} = require('@vue/cli-service');
 module.exports = defineConfig({
 	transpileDependencies: true,
-  pages: {
-		index: {
-			entry: "src/main.js"
-		}
+	chainWebpack: config => {
+		config.resolve.extensions.add(".vue");
+		console.log(config.resolve.extensions.store);
 	},
-
 	css: {
 		loaderOptions: {
 			sass: {

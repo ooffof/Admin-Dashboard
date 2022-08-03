@@ -1,12 +1,12 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import router from "./router";
-import store from "./store";
+import App from '@/App.vue'
+import router from "@/router";
+import store from "@/store";
 import VueTablerIcons from "vue-tabler-icons";
-import VueI18n from "./languages";
+import VueI18n from "@/languages";
 
 
-import "./sass/main.scss"
+import "@/sass/main.scss"
 
 
 

@@ -1,0 +1,13 @@
+.dashboard{
+
+  padding: 2.4rem 4.8rem;
+
+  @include themify(){
+    background-color: themed("dashboard-bgcolor");
+  }
+
+  &__heading-primary{
+    font-size: 2.4rem;
+    font-weight: 400;
+  }
+}

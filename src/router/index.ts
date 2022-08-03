@@ -1,7 +1,7 @@
 import {createRouter, createWebHistory} from "vue-router";
-import TheNav from "@/layouts/TheNav";
-import HomePage from "@/pages/HomePage";
-import DashboardPage from "@/pages/DashboardPage";
+import TheNav from "@/layouts/TheNav.vue";
+import HomePage from "@/pages/HomePage.vue";
+import DashboardPage from "@/pages/DashboardPage.vue";
 
 const router = createRouter({
 	history: createWebHistory(),
