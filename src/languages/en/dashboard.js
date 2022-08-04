@@ -1,3 +1,4 @@
 export default {
-	title: "Dashboard"
+	title: "Dashboard",
+	totalUser: "用户总数"
 }
