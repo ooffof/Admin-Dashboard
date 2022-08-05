@@ -1,24 +1,23 @@
-.dashboard{
+.dashboard {
 
   padding: 2.4rem 4.8rem;
 
-  @include themify(){
+  @include themify() {
     background-color: themed("dashboard-bgcolor");
   }
 
-  &__heading-primary{
+  &__heading-primary {
     font-size: 2.4rem;
     font-weight: 400;
   }
 
 
-
-  &__cards{
+  &__cards {
     @include flex-align-center;
     gap: 2.4rem;
     justify-content: space-between;
 
-    .card{
+    .card {
       flex: 1;
       @include flex-align-center;
       @include flex-space-between;
@@ -26,24 +25,25 @@
       border-radius: .6rem;
       box-shadow: 0 .2rem .4rem rgba($color-black, .1);
 
-      &__left{
-        &-heading{
+      &__left {
+        &-heading {
           font-weight: 400;
           font-size: 1.4rem;
         }
-        &-info{
+
+        &-info {
           font-size: 2.8rem;
           font-weight: 600;
 
-          @include themify(){
+          @include themify() {
             color: themed("card-info-color")
           }
         }
 
-        &-description{
+        &-description {
           font-size: 1.2rem;
 
-          @include themify(){
+          @include themify() {
             color: themed("card-description-color")
           }
 
@@ -53,40 +53,75 @@
 
       }
 
-      @include themify(){
+      @include themify() {
         background-color: themed("card-bgcolor");
       }
 
-      .chart{
+      .chart {
         height: 12rem;
         width: 45%;
       }
 
-      &__icon-container{
+      &__icon-container {
         @include flex-align-center;
         gap: .1rem;
 
-        &--1{
+        &--1 {
           color: #845ef7;
         }
 
-        &--2{
-          color:#22b8cf;
+        &--2 {
+          color: #22b8cf;
         }
 
-        &--3{
+        &--3 {
           color: #ff922b;
         }
 
-        &--4{
+        &--4 {
           color: #94d82d;
         }
 
-        svg{
+        svg {
           width: 1.2rem;
           height: 1.2rem;
         }
       }
+    }
+  }
+
+  &__charts {
+
+    @include flex-align-center;
+    gap: 2.4rem;
+
+    &--chart {
+      border-radius: .6rem;
+      box-shadow: 0 .2rem .4rem rgba($color-black, .1);
+
+      @include themify(){
+        background-color: themed("card-bgcolor");
+      }
+      height: 45rem;
+      width: 50%;
+
+      .chart{
+        width: 100%;
+        height: 90%;
+        padding: 1.2rem 2.4rem;
+      }
+
+      .heading{
+        font-weight: 400;
+        font-size: 2rem;
+        padding: 1.2rem 2.4rem;
+
+        @include themify(){
+          color: themed("card-info-color");
+          border-bottom: themed("chart-heading-border-bottom");
+        }
+      }
+
     }
   }
 

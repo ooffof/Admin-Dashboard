@@ -12,7 +12,8 @@ $themes: (light: (
         dashboard-bgcolor: #f8f9fa,
         card-bgcolor: $color-white,
         card-info-color: #666,
-        card-description-color: #999
+        card-description-color: #999,
+        chart-heading-border-bottom: 1px solid #dee2e6
 ), dark:(
         base-text-color: $color-text-level-c,
         background-color: $color-dark-background,
@@ -26,7 +27,8 @@ $themes: (light: (
         nav-border-bottom: 1px solid #444,
         dashboard-bgcolor: $color-dark-background,
         card-bgcolor: #444,
-        card-info-color: $color-white,
-        card-description-color: #999
+        card-info-color: #eee,
+        card-description-color: #999,
+        chart-heading-border-bottom: 1px solid $color-text-level-5
 ))
 

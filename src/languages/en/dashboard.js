@@ -1,4 +1,6 @@
 export default {
 	title: "Dashboard",
-	totalUser: "用户总数"
-}
+	totalUser: "Total User",
+	userFrom: "Our Users",
+	userPercentage: "User Percentage"
+};

@@ -5,14 +5,14 @@
       <span>RBSVM-UI</span>
     </div>
     <div class="side-nav__menu">
-      <ul class="side-nav__items">
+      <div class="side-nav__items">
         <span class="side-nav__sub-category">
           {{ t('message.mainMenu.text') }}
         </span>
-        <li class="side-nav__item">
+        <router-link class="side-nav__item" to="/home/dashboard">
           <dashboard-icon class="u-base-icon"></dashboard-icon>
           <span>{{ t('message.mainMenu.dashboard') }}</span>
-        </li>
+        </router-link>
 
 
         <span class="side-nav__sub-category">
@@ -23,6 +23,7 @@
           <span>{{ t('message.funs.list[0]') }}</span>
           <div class="side-nav__label side-nav__label--new">New</div>
         </li>
+
         <li class="side-nav__item side-nav__slide-hidden">
           <users-icon class="u-base-icon"></users-icon>
           <span>{{ t('message.funs.list[1]') }}</span>
@@ -31,17 +32,18 @@
         <ul class="side-nav__slide-menu">
           <li>
             <dashboard-icon class="u-base-icon"></dashboard-icon>
-            <span>hello world</span>
+            <p>hello world</p>
           </li>
           <li>
             <dashboard-icon class="u-base-icon"></dashboard-icon>
-            <span>hello world</span>
+            <p>hello world</p>
           </li>
           <li>
             <dashboard-icon class="u-base-icon"></dashboard-icon>
-            <span>hello world</span>
+            <p>hello world</p>
           </li>
         </ul>
+
         <li class="side-nav__item side-nav__slide-hidden">
           <bookmarks-icon class="u-base-icon"></bookmarks-icon>
           <span>{{ t('message.funs.list[2]') }}</span>
@@ -61,6 +63,7 @@
             <span>hello world</span>
           </li>
         </ul>
+
         <li class="side-nav__item">
           <border-all-icon class="u-base-icon"></border-all-icon>
           <span>{{ t('message.funs.list[3]') }}</span>
@@ -118,7 +121,7 @@
         </li>
 
 
-      </ul>
+      </div>
     </div>
   </div>
 </template>
