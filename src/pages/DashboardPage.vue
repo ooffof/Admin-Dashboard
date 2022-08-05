@@ -104,7 +104,7 @@ const option1 = {
   xAxis: {
     show: false,
     type: 'category',
-    data: Array(15).fill("_")
+    data: Array(10).fill("_")
   },
   yAxis: {
     type: 'value',
@@ -113,7 +113,7 @@ const option1 = {
   series: [
     {
       symbol: "none",
-      data: randomArray(15, 0, 1000),
+      data: randomArray(10, 0, 1000),
       type: 'line',
       smooth: true,
       itemStyle: {
@@ -176,7 +176,7 @@ const option3 = {
   xAxis: {
     show: false,
     type: 'category',
-    data: Array(15).fill("_")
+    data: Array(10).fill("_")
   },
   yAxis: {
     type: 'value',
@@ -185,7 +185,7 @@ const option3 = {
   series: [
     {
       symbol: "none",
-      data: randomArray(15, 0, 1000),
+      data: randomArray(10, 0, 1000),
       type: 'line',
       smooth: true,
       itemStyle: {

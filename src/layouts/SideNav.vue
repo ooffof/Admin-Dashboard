@@ -12,114 +12,55 @@
         <router-link class="side-nav__item" to="/home/dashboard">
           <dashboard-icon class="u-base-icon"></dashboard-icon>
           <span>{{ t('message.mainMenu.dashboard') }}</span>
+          <chevron-right-icon class="toggle-btn" @click="toggleMenu($event)"></chevron-right-icon>
+          <ul class="side-nav__item__menu">
+            <li><circle-icon></circle-icon>asdgsl</li>
+            <li><circle-icon></circle-icon>asdgsl</li>
+            <li><circle-icon></circle-icon>asdgsl</li>
+          </ul>
         </router-link>
 
 
         <span class="side-nav__sub-category">
           {{ t('message.funs.text') }}
         </span>
-        <li class="side-nav__item">
+        <router-link class="side-nav__item" to="/home">
           <box-icon class="u-base-icon"></box-icon>
           <span>{{ t('message.funs.list[0]') }}</span>
-          <div class="side-nav__label side-nav__label--new">New</div>
-        </li>
-
-        <li class="side-nav__item side-nav__slide-hidden">
+        </router-link>
+        <router-link to="/home" class="side-nav__item">
           <users-icon class="u-base-icon"></users-icon>
           <span>{{ t('message.funs.list[1]') }}</span>
-          <chevrons-right-icon class="u-base-icon arrow-right" @click="toggleSlideMenu"></chevrons-right-icon>
-        </li>
-        <ul class="side-nav__slide-menu">
-          <li>
-            <dashboard-icon class="u-base-icon"></dashboard-icon>
-            <p>hello world</p>
-          </li>
-          <li>
-            <dashboard-icon class="u-base-icon"></dashboard-icon>
-            <p>hello world</p>
-          </li>
-          <li>
-            <dashboard-icon class="u-base-icon"></dashboard-icon>
-            <p>hello world</p>
-          </li>
-        </ul>
-
-        <li class="side-nav__item side-nav__slide-hidden">
+        </router-link>
+        <router-link class="side-nav__item side-nav__slide-hidden" to="/home">
           <bookmarks-icon class="u-base-icon"></bookmarks-icon>
           <span>{{ t('message.funs.list[2]') }}</span>
-          <chevrons-right-icon class="u-base-icon arrow-right" @click="toggleSlideMenu"></chevrons-right-icon>
-        </li>
-        <ul class="side-nav__slide-menu">
-          <li>
-            <dashboard-icon class="u-base-icon"></dashboard-icon>
-            <span>hello world</span>
-          </li>
-          <li>
-            <dashboard-icon class="u-base-icon"></dashboard-icon>
-            <span>hello world</span>
-          </li>
-          <li>
-            <dashboard-icon class="u-base-icon"></dashboard-icon>
-            <span>hello world</span>
-          </li>
-        </ul>
-
-        <li class="side-nav__item">
+        </router-link>
+        <router-link class="side-nav__item" to="/home">
           <border-all-icon class="u-base-icon"></border-all-icon>
           <span>{{ t('message.funs.list[3]') }}</span>
-        </li>
+        </router-link>
 
 
         <span class="side-nav__sub-category">
           {{ t('message.funs.text') }}
         </span>
-        <li class="side-nav__item">
+        <router-link class="side-nav__item" to="/home">
           <dashboard-icon class="u-base-icon"></dashboard-icon>
           <span>{{ t('message.funs.list[0]') }}</span>
-        </li>
-        <li class="side-nav__item side-nav__slide-hidden">
+        </router-link>
+        <router-link class="side-nav__item side-nav__slide-hidden" to="/home">
           <dashboard-icon class="u-base-icon"></dashboard-icon>
           <span>{{ t('message.funs.list[1]') }}</span>
-          <div class="side-nav__label side-nav__label--hot">Hot</div>
-        </li>
-        <ul class="side-nav__slide-menu">
-          <li>
-            <dashboard-icon class="u-base-icon"></dashboard-icon>
-            <span>hello world</span>
-          </li>
-          <li>
-            <dashboard-icon class="u-base-icon"></dashboard-icon>
-            <span>hello world</span>
-          </li>
-          <li>
-            <dashboard-icon class="u-base-icon"></dashboard-icon>
-            <span>hello world</span>
-          </li>
-        </ul>
-        <li class="side-nav__item side-nav__slide-hidden">
+        </router-link>
+        <router-link class="side-nav__item" to="/home">
           <dashboard-icon class="u-base-icon"></dashboard-icon>
           <span>{{ t('message.funs.list[2]') }}</span>
-          <chevrons-right-icon class="u-base-icon arrow-right" @click="toggleSlideMenu"></chevrons-right-icon>
-        </li>
-        <ul class="side-nav__slide-menu">
-          <li>
-            <dashboard-icon class="u-base-icon"></dashboard-icon>
-            <span>hello world</span>
-          </li>
-          <li>
-            <dashboard-icon class="u-base-icon"></dashboard-icon>
-            <span>hello world</span>
-          </li>
-          <li>
-            <dashboard-icon class="u-base-icon"></dashboard-icon>
-            <span>hello world</span>
-          </li>
-        </ul>
-        <li class="side-nav__item">
+        </router-link>
+        <router-link class="side-nav__item" to="/home">
           <dashboard-icon class="u-base-icon"></dashboard-icon>
           <span>{{ t('message.funs.list[3]') }}</span>
-        </li>
-
+        </router-link>
 
       </div>
     </div>
@@ -137,18 +78,24 @@ const sideMenuToggled = computed(() => state.sideMenuToggled);
 const sideNav = ref();
 watch(sideMenuToggled, () => {
   sideNav.value.classList.toggle("side-nav__collapse");
-  const slideMenuList = document.querySelectorAll(".side-nav__slide-menu");
+  const slideMenuList = document.querySelectorAll(".side-nav__item__menu");
   slideMenuList.forEach(value => {
     value.classList.toggle("u-hidden");
   });
 });
 
-function toggleSlideMenu(e: Event) {
-  const target = e.target as HTMLElement;
-  const parent = target.closest("li")!;
-  parent.classList.toggle("side-nav__slide-hidden");
-  target.classList.toggle("arrow-right--rotate");
+function toggleMenu(e: MouseEvent) {
+  let t = e.target as HTMLElement;
+  const menu = t.closest(".side-nav__item")!.querySelector(".side-nav__item__menu") as HTMLElement;
+  if(t.nodeName !== "svg"){
+    t.closest("svg")!.classList.toggle("u-rotate-90");
+  }else{
+    t.classList.toggle("u-rotate-90");
+  }
+
+  menu.classList.toggle("u-height-auto");
 }
+
 
 </script>
 
