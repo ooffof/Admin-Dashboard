@@ -17,19 +17,52 @@
         <brightness-up-icon class="u-base-icon"
                             @click="changeTheme('light')"></brightness-up-icon>
       </div>
-      <div class="nav__notification-box">
-        <bell-icon stroke-width="1.5"></bell-icon>
-        <div class="nav__color-tip nav__color-tip--green"></div>
-      </div>
-      <div class="nav__notification-box">
-        <message-circle-icon class="u-base-icon"></message-circle-icon>
-        <div class="nav__color-tip nav__color-tip--red"></div>
-      </div>
+      <base-dropdown :title="'通知'">
+        <template #default>
+          <div class="nav__notification-box">
+            <bell-icon stroke-width="1.5"></bell-icon>
+            <div class="nav__color-tip nav__color-tip--green"></div>
+          </div>
+        </template>
+        <template #content>
+          <dropdown-item mail><p>Hello World</p></dropdown-item>
+          <dropdown-item check><p>网站届时发布新版本，请及时关注</p></dropdown-item>
+          <dropdown-item userplus><p>Hello World</p></dropdown-item>
+        </template>
+      </base-dropdown>
+
+      <base-dropdown :title="'信息'">
+        <template #default>
+          <div class="nav__notification-box">
+            <message-circle-icon class="u-base-icon"></message-circle-icon>
+            <div class="nav__color-tip nav__color-tip--red"></div>
+          </div>
+        </template>
+        <template #content>
+          <dropdown-item img src="https://picsum.photos/200/200"><p>你好，添加你为好友</p></dropdown-item>
+          <dropdown-item img src="https://picsum.photos/200/201"><p>网站届时发</p></dropdown-item>
+          <dropdown-item img src="https://picsum.photos/201/200"><p>Hello World</p></dropdown-item>
+        </template>
+      </base-dropdown>
+
       <div class="nav__user-box">
         <img src="https://picsum.photos/200/300" alt="user icon" class="round-image">
         <span>Admin</span>
       </div>
-      <settings-icon class="u-base-icon nav__icon-settings"></settings-icon>
+
+
+      <base-dropdown :title="'用户'">
+        <template #default>
+          <div class="nav__notification-box">
+            <settings-icon class="u-base-icon nav__icon-settings"></settings-icon>
+          </div>
+        </template>
+        <template #content>
+          <dropdown-item :trash="false"><p>查看个人资料</p></dropdown-item>
+          <dropdown-item :trash="false"><p>修改密码</p></dropdown-item>
+          <dropdown-item :trash="false"><p>退出</p></dropdown-item>
+        </template>
+      </base-dropdown>
     </div>
   </nav>
 </template>
@@ -37,6 +70,8 @@
 <script setup lang="ts">
 import SearchBox from "@/components/SearchBox.vue";
 import BaseSelect from "@/components/base/BaseSelect.vue";
+import BaseDropdown from "@/components/base/BaseDropdown.vue";
+import DropdownItem from "@/components/base/DropdownItem.vue";
 import {useStore} from "vuex";
 import {ref} from "vue";
 import {useLoading, useMessage} from "@/hooks";

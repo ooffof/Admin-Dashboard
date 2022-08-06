@@ -13,6 +13,7 @@ $themes: (light: (
         card-description-color: #999,
         chart-heading-border-bottom: 1px solid #dee2e6,
         toggle-btn-bgcolor: #666,
+        nav-popup-color: $color-text-level-5,
 ), dark:(
         base-text-color: $color-text-level-c,
         color-reverse: #555,
@@ -28,5 +29,6 @@ $themes: (light: (
         card-description-color: #999,
         chart-heading-border-bottom: 1px solid $color-text-level-5,
         toggle-btn-bgcolor: $color-text-level-c,
+        nav-popup-color: $color-text-level-7
 ))
 
