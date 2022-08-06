@@ -1,12 +1,12 @@
 <template>
   <li class="dropdown__item">
     <div class="dropdown__item--control-max-height">
-      <mail-icon v-show="props.mail"></mail-icon>
-      <checkbox-icon v-show="props.check"></checkbox-icon>
-      <user-plus-icon v-show="props.userplus"></user-plus-icon>
-      <img alt="user" :src="props.src" v-show="props.img" class="dropdown__img">
+      <mail-icon v-if="props.mail"></mail-icon>
+      <checkbox-icon v-if="props.check"></checkbox-icon>
+      <user-plus-icon v-if="props.userplus"></user-plus-icon>
+      <img alt="user" :src="props.src" v-if="props.img" class="dropdown__img">
       <slot></slot>
-      <trash-icon v-show="props.trash" class="trash" @click="deleteItem"></trash-icon>
+      <trash-icon v-if="props.trash" class="trash" @click="deleteItem"></trash-icon>
     </div>
   </li>
 </template>
